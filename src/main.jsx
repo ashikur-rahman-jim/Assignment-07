@@ -7,6 +7,7 @@ import RootLayout from './layout/RootLayout';
 import Home from './pages/Home/Home';
 import Timeline from './pages/Timeline/Timeline';
 import Stats from './pages/Stats/Stats';
+import FriendsDetails from './pages/FriendsDetails/FriendsDetails';
 
 
 const router = createBrowserRouter([
@@ -19,10 +20,21 @@ const router = createBrowserRouter([
         element: <Home />,
         loader: () => fetch("/friends.json")
       },
-      {path: "timeline", element: <Timeline />},
-      {path: "stats", element: <Stats />}
+      { path: "timeline", element: <Timeline /> },
+      { path: "stats", element: <Stats /> },
+      {
+        path: "FriendsDetails/:FriendId",
+        element: <FriendsDetails />,
+        loader: () => fetch("/friends.json")
+      },
     ]
   },
+
+  // {
+  //   path: "FriendsDetails/:FriendId",
+  //   element: <FriendsDetails />,
+  //   loader: () => fetch("/friends.json")
+  // },
 ]);
 
 

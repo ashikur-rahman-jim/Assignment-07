@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router";
+import { Link, useLoaderData } from "react-router";
 
 const Friends = () => {
     const friends = useLoaderData();
@@ -10,7 +10,7 @@ const Friends = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {
                     friends.map(friend => (
-                        <div key={friend.id} className="bg-white p-6 rounded-xl shadow-sm flex flex-col items-center text-center border border-gray-100">
+                        <Link to={`FriendsDetails/${friend.id}`} key={friend.id} className="bg-white p-6 rounded-xl shadow-sm flex flex-col items-center text-center border border-gray-100">
 
                             {/* Profile Image */}
                             <div className="mb-4">
@@ -26,7 +26,7 @@ const Friends = () => {
 
                             {/* Status Badge */}
                             <p className={`px-4 py-1.5 rounded-full text-xs text-white bg-[#EF4444] shadow-sm`}>{friend.status}</p>
-                        </div>
+                        </Link>
                     ))
                 }
             </div>
